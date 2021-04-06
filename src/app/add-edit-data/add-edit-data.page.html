@@ -1,0 +1,18 @@
+<ion-content>
+  <ion-icon name = "arrow-back-outline" class = "ion-padding" routerLink="/home"></ion-icon>
+  <div class = "main-section">
+    <h3 class = "ion-padding">{{ isEdit ? 'Modifier une transaction' : 'Ajouter une transaction' }}</h3>
+    <div class = "form ion-padding ion-margin">
+      <ion-select interface = "action-sheet" [(ngModel)]="type" placeholder = "Selectionner l'entrée">
+        <ion-select-option value = "income">Gain</ion-select-option>
+        <ion-select-option value = "expense">Dépense</ion-select-option>
+      </ion-select>
+
+      <ion-input placeholder = "Titre" [(ngModel)]="title"></ion-input>
+      <ion-input placeholder = "Sous-titre" [(ngModel)]="subTitle"></ion-input>
+      <ion-input placeholder = "Montant" [(ngModel)]="amount" type = "number"></ion-input>
+
+      <ion-button color = "dark" (click) = "addTransaction()">{{ isEdit ? 'Modifier' : 'Ajouter'}} &nbsp;<ion-spinner *ngIf = "loading"></ion-spinner></ion-button>
+    </div>
+  </div>
+</ion-content>
